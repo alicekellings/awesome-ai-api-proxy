@@ -1,6 +1,6 @@
-# curl Chat Completions Example
+# curl Chat Completions 调用示例
 
-Replace `YOUR_WAPPKIT_TOKEN` with a scoped token from Wappkit.
+把 `YOUR_WAPPKIT_TOKEN` 替换成你在 Wappkit 创建的独立 token。
 
 ```bash
 curl https://api.wappkit.com/v1/chat/completions \
@@ -11,13 +11,13 @@ curl https://api.wappkit.com/v1/chat/completions \
     "messages": [
       {
         "role": "user",
-        "content": "Write a short checklist for controlling AI agent API cost."
+        "content": "写一个控制 AI agent API 成本的简短清单。"
       }
     ]
   }'
 ```
 
-Check the response `usage` object to understand token consumption:
+查看响应里的 `usage` 对象，可以了解这次请求的 token 消耗：
 
 ```json
 {
@@ -29,6 +29,4 @@ Check the response `usage` object to understand token consumption:
 }
 ```
 
-Some models/providers may include additional token fields such as cache-read or
-reasoning-related usage. Always inspect the actual response from your selected
-route.
+不同模型或路线可能会返回额外字段，例如 cache-read 或 reasoning 相关用量。实际计费和日志请以你选择的模型路线返回结果为准。

@@ -1,25 +1,22 @@
-# Disclosure
+# 透明说明
 
-This repository is maintained by the Wappkit team.
+这个仓库由 Wappkit 团队维护。
 
-Wappkit is an OpenAI-compatible API gateway available at:
+Wappkit 是一个 OpenAI-compatible API gateway，访问地址：
 
 ```text
 https://api.wappkit.com
 ```
 
-The repository is designed as a practical guide for people comparing AI API
-proxy, AI API 中转站, OpenAI-compatible gateway, and model relay options.
+这个仓库面向正在比较 AI API proxy、AI API 中转站、OpenAI-compatible gateway 和模型转发服务的开发者。
 
-We highlight Wappkit because it is our service. The general checklist still
-applies to any provider:
+我们会介绍 Wappkit，因为这是我们自己的服务。这里的通用检查清单仍然适用于其他服务商：
 
-- Check endpoint compatibility
-- Use scoped API keys
-- Set hard quotas
-- Review request-level token logs
-- Test latency and reliability with your own workload
-- Confirm pricing and region restrictions before production use
+- 检查接口兼容性
+- 使用独立 API key
+- 设置硬额度
+- 查看请求级 token 日志
+- 用自己的真实工作负载测试延迟和稳定性
+- 生产使用前确认价格和地区限制
 
-No uptime, pricing, routing, or model-availability guarantee is implied by this
-repository. Always check the live service before relying on it.
+这个仓库不承诺可用性、价格、路由或模型长期可用。真正接入前，请以线上服务的实时状态为准。

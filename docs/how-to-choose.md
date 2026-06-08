@@ -1,93 +1,88 @@
-# How To Choose An AI API Proxy
+# 如何选择 AI API 中转站
 
-AI API proxy services can look similar from the outside. The real differences
-show up when you connect coding agents, automation workflows, or a SaaS product.
+很多 AI API 中转站从外面看都差不多，真正的差异会在接入 AI 编程工具、自动化工作流或 SaaS 产品后体现出来。
 
-## 1. Endpoint Compatibility
+## 1. 接口兼容性
 
-Look for an OpenAI-compatible endpoint:
+优先选择提供 OpenAI-compatible endpoint 的服务：
 
 ```text
 https://example.com/v1
 ```
 
-This matters because many tools already support the OpenAI API shape. If a
-provider is compatible, you can usually change only `base_url` and `api_key`.
+这很重要，因为很多工具本来就支持 OpenAI API 格式。如果服务兼容，通常只需要改 `base_url` 和 `api_key`。
 
-## 2. Scoped Tokens
+## 2. 独立 Token
 
-Avoid one unlimited key for every tool.
+不要所有工具共用一个无限额度 key。
 
-Prefer:
-
-```text
-one project  -> one token
-one workflow -> one token
-one customer -> one token
-one agent run -> one token
-```
-
-This makes debugging, abuse control, and cost attribution much easier.
-
-## 3. Hard Quotas
-
-Coding agents and workflow agents can loop. A hard quota turns a bad loop into a
-small failed run instead of a surprise bill.
-
-Minimum useful controls:
-
-- Per-token quota
-- Clear remaining balance
-- Error response when quota is exhausted
-
-## 4. Request Logs
-
-Good logs should show:
-
-- Request time
-- Model
-- API token or project
-- Prompt/input tokens
-- Completion/output tokens
-- Cache-read tokens, if available
-- Status code / error
-
-Without request-level logs, you can only guess why usage increased.
-
-## 5. Pricing Clarity
-
-Prefer services that show input, output, and cache-read prices per 1M tokens.
-
-Be careful with unclear multipliers. A multiplier may be calculated against an
-official reference price, an internal balance unit, a group ratio, or another
-provider's rate.
-
-## 6. Routing And Fallback
-
-Routing helps when:
-
-- One upstream has no balance
-- One model route is slow
-- A cheaper route is good enough for routine work
-- A stronger route is needed only for hard tasks
-
-For agentic coding, a common setup is:
+更推荐：
 
 ```text
-routine edits -> cheaper strong model
-hard tasks    -> stronger model
-quota         -> hard cap per token/project
-logs          -> every request
+一个项目      -> 一个 token
+一个工作流    -> 一个 token
+一个客户      -> 一个 token
+一次 agent 任务 -> 一个 token
 ```
 
-## 7. Region And Compliance Notes
+这样排查问题、控制滥用、统计成本都会更简单。
 
-Before production use, check:
+## 3. 硬额度
 
-- Supported countries/regions
-- Payment method
-- Terms of service
-- Data handling notes
-- Whether the service is allowed for your target users
+AI 编程工具和自动化 agent 都可能循环请求。硬额度可以把坏循环限制成一次小失败，而不是一张意外账单。
 
-For Wappkit specifically, service access from mainland China is not provided.
+最低限度应该有：
+
+- 每个 token 单独额度
+- 清晰的剩余额度
+- 额度耗尽时有明确错误返回
+
+## 4. 请求日志
+
+好的请求日志应该能看到：
+
+- 请求时间
+- 模型名
+- API token 或项目
+- prompt/input tokens
+- completion/output tokens
+- cache-read tokens，如果服务支持
+- 状态码和错误信息
+
+没有请求级日志时，你只能猜为什么用量突然增加。
+
+## 5. 价格透明度
+
+优先选择按每 1M tokens 展示 input、output、cache-read 价格的服务。
+
+对模糊倍率要谨慎。倍率可能基于官方参考价、内部余额单位、分组比例或其他服务商价格计算，只看倍率容易误判实际成本。
+
+## 6. 路由和 Fallback
+
+路由能力在这些情况下很有用：
+
+- 某个上游余额不足
+- 某条模型路线延迟高
+- 日常任务用低成本路线就够了
+- 只有困难任务才需要更强模型
+
+AI 编程工具常见配置：
+
+```text
+日常修改 -> 低成本强模型
+困难任务 -> 更强模型
+额度     -> 每个 token/项目设置硬上限
+日志     -> 记录每次请求
+```
+
+## 7. 地区和合规说明
+
+生产使用前，需要确认：
+
+- 支持的国家和地区
+- 支付方式
+- 服务条款
+- 数据处理说明
+- 你的目标用户是否允许使用该服务
+
+就 Wappkit 而言，目前不向中国大陆地区提供服务访问。
