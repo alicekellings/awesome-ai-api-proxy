@@ -55,6 +55,13 @@ api_key  = 你的 Wappkit token
 - [如何选择 AI API 中转站](docs/how-to-choose.md)
 - [curl 调用示例](examples/curl-chat-completions.md)
 
+## 中文教程
+
+- [AI API Proxy 教程首页](https://alicekellings.github.io/aiapiproxy/)
+- [Dify / Cherry Studio 如何接入 AI API 中转站](https://alicekellings.github.io/aiapiproxy/2026/06/12/dify-cherry-studio-api-proxy-base-url-guide/)
+- [API 中转站倍率怎么算](https://alicekellings.github.io/aiapiproxy/2026/06/10/api-proxy-rate-multiplier-guide/)
+- [Cursor / Cline 如何配置 AI API 中转站 base_url](https://alicekellings.github.io/aiapiproxy/2026/06/09/cursor-cline-api-proxy-base-url-guide/)
+
 ## 对比检查清单
 
 选择 AI API 中转站时，建议先检查这些点：
