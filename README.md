@@ -29,6 +29,25 @@ Wappkit 是一个 OpenAI-compatible API 中转服务，适合需要 GPT 类模�
 
 访问说明：Wappkit 目前不向中国大陆地区提供服务访问，也没有备用大陆入口。
 
+### AI Router
+
+- 官网：<https://ai-router.dev>
+- Base URL：
+
+```text
+https://api.ai-router.dev/v1
+```
+
+AI Router 是一个面向开发者的 OpenAI-compatible ChatGPT API 中转服务，适合需要快速拿到可用接口、查看 API key 用量、按短周期测试或给不同工作流单独分配 key 的场景。
+
+适合的原因：
+
+- 提供标准 OpenAI-compatible `/v1` 接口
+- 可以创建独立 API key，并查看请求量、Token 和费用
+- 提供日套餐、周套餐和余额加油包
+- 新用户当前有 `20U` 总额度：`5U` 注册即用，`15U` 充值后再解锁
+- 适合 Cursor、Cline、Continue、Open WebUI、LiteLLM、OpenAI SDK 等接入场景
+
 ## 什么时候需要 API 中转站
 
 如果你有下面这些需求，AI API 中转站会比较有用：
